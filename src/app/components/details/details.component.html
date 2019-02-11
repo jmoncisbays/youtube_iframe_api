@@ -1,0 +1,55 @@
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        Details
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td>Exercise Category</td>
+            <td>{{ exercise.category }}</td>
+          </tr>
+          <tr>
+            <td>Exercise Name</td>
+            <td>{{ exercise.name }}</td>
+          </tr>
+        </tbody>
+        <tr>
+          <td>Exercise Description</td>
+          <td>{{ exercise.description }}</td>
+        </tr>
+        <tr>
+          <td>Exercise Video ID</td>
+          <td>{{ exercise.videoId }}</td>
+        </tr>
+        <tr>
+          <td>Reps</td>
+          <td>{{ exercise.reps }}</td>
+        </tr>
+        <tr>
+          <td>Sets</td>
+          <td>{{ exercise.sets }}</td>
+        </tr>
+        <tr>
+          <td>Hold</td>
+          <td>{{ exercise.hold }}</td>
+        </tr>
+      </table>
+    </mat-card-content>
+    <mat-card-footer>
+      <div class="text-center">
+        <div id="player" #youtubeplayer appYoutube (video-ended)="videoEnded($event)"></div>
+      </div>
+    </mat-card-footer>
+    <mat-card-actions align="end">
+      <button type="button" class="btn btn-primary mr-2" (click)="loadVideo(exercise.videoId)">
+        <i class="fab fa-youtube mr-3"></i>
+        Load and View Video
+      </button>  
+      <button type="button" class="btn btn-primary" routerLink="/home">Home</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

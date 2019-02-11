@@ -1,0 +1,61 @@
+<div class="container">
+  <form novalidate [formGroup]="exerciseForm" (ngSubmit)="save()" autocomplete="Off" class="form-new">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          <i class="fas fa-plus mr-3"></i>New
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-form-field>
+          <input matInput placeholder="Exercise Category" formControlName="category" [errorStateMatcher]="matcher" required />
+          <mat-error *ngIf="categoryControl.hasError('required')">
+            Exercise category is required
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="nameControl" placeholder="Exercise Name" formControlName="name"
+            [errorStateMatcher]="matcher" required />
+          <mat-error *ngIf="nameControl.hasError('required')">
+            Exercise name is required
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <textarea matInput placeholder="Exercise Description" formControlName="description" [errorStateMatcher]="matcher"
+            rows="6" required></textarea>
+          <mat-error *ngIf="descriptionControl.hasError('required')">
+            Exercise description is required
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="YouTube video-id" formControlName="videoId" [errorStateMatcher]="matcher" required />
+          <mat-error *ngIf="videoIdControl.hasError('required')">
+            Video ID is required
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Reps" formControlName="reps" [errorStateMatcher]="matcher" required />
+          <mat-error *ngIf="repsControl.hasError('required')">
+            Reps is required
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Sets" formControlName="sets" [errorStateMatcher]="matcher" required />
+          <mat-error *ngIf="setsControl.hasError('required')">
+            Sets is required
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Hold" formControlName="hold" [errorStateMatcher]="matcher" required />
+          <mat-error *ngIf="holdControl.hasError('required')">
+            Hold is required
+          </mat-error>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button type="submit" class="btn btn-primary mr-2" [disabled]="!exerciseForm.valid">Save</button>
+        <button type="button" class="btn btn-secondary" routerLink="/home">Cancelar</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>

@@ -1,0 +1,51 @@
+<div class="container">
+  <mat-card>
+    <mat-card-content>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Exercise Category</th>
+            <th>Exercise Name</th>
+            <th>Exercise Description</th>
+            <th>Exercise Video</th>
+            <th>Reps</th>
+            <th>Sets</th>
+            <th>Hold</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let e of exercises; let indx = index">
+            <td>{{ e.category }}</td>
+            <td>
+              {{ e.name }}
+            </td>
+            <td>
+              {{ e.description }}
+            </td>
+            <td>
+              {{ e.videoId }}
+            </td>
+            <td>
+              {{ e.reps }}
+            </td>
+            <td>
+              {{ e.sets }}
+            </td>
+            <td>
+              {{ e.hold }}
+            </td>
+            <td class="text-right">
+              <a class="btn btn-primary btn-sm" routerLink="/details/{{ indx }}" role="button">
+                Details
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button type="button" class="btn btn-primary" routerLink="/new">New</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
